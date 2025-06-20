@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Index Page{% endblock %}
+{% block content %}
+<div class="row" style="padding-top: 5%;">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+		<form class="form" method="post" action="/">
+			<div class="mb-4 form-group">
+				<label for="input_text" class="form-label">Enter Text to Predict: </label>
+                <textarea class="form-control shadow mt-4" id="input_text" name="input_text" rows="5" required></textarea>
+				<div class="invalid-feedback">
+					Please upload File at first.
+				  </div>
+			</div>
+			<button type="submit" class="btn shadow btn-secondary mt-4">Submit</button>
+		</form>
+	</div>
+	<div class="col-sm-3"></div>
+</div>
+{% if text %}
+<div class="row ">
+    <div class="class-md1"></div>
+    <div class="col-sm-3 d-flex align-items-center justify-content-center">
+    </div>
+    <div class="col-sm-5">
+        <h6 class="text-center">Text To predict: <b>{{text}}</b></h6><br>
+        <table class="table table-responsive">
+            <tr>
+                <th>Models</th>
+                <th>Results</th>
+            </tr>
+            <tr>
+                <td>Logistic Regression</td>
+                <td>{{LR_result}}</td>
+            </tr>
+            <tr>
+                <td>Random Forest</td>
+                <td>{{RF_result}}</td>
+            </tr>
+            <tr>
+                <td>XGBoost</td>
+                <td>{{XGBoost_result}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-3 d-flex align-items-center justify-content-center">
+        
+    </div>
+
+</div>
+{% endif  %}
+{% endblock %}
